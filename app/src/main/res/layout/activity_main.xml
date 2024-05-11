@@ -77,12 +77,12 @@
                     android:id="@+id/viewpager2"
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                </androidx.viewpager2.widget.ViewPager2>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ProgressBar
                     android:id="@+id/progressBarBanner"
@@ -147,6 +147,7 @@
     </ScrollView>
 
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:id="@+id/bottom_nav_bar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@color/white"
