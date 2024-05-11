@@ -5,4 +5,4 @@
     android:layout_height="match_parent"
     android:adjustViewBounds="false"
     android:minHeight="150dp"
-    android:scaleType="fitCenter"></ImageView>
+    android:scaleType="fitCenter" />
