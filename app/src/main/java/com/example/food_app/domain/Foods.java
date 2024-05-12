@@ -11,7 +11,7 @@ public class Foods implements Serializable {
     private double Price;
     private String ImagePath;
     private int PriceId;
-    private double Star;
+    private float Star;
     private int TimeId;
     private int TimeValue;
     private String Title;
@@ -88,7 +88,7 @@ public class Foods implements Serializable {
         return Star;
     }
 
-    public void setStar(double star) {
+    public void setStar(float star) {
         Star = star;
     }
 

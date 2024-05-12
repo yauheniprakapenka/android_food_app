@@ -36,12 +36,13 @@ public class DetailActivity extends BaseActivity {
         binding.totalTxt.setText(object.getStar() + " Stars");
         binding.ratingBar.setRating(object.getStar());
         binding.totalTxt.setText((num * object.getPrice()) + "$");
+        binding.timeTxt.setText(object.getTimeValue() + " min");
 
         binding.plusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 num = num + 1;
-                binding.numTxt.setText(num);
+                binding.numTxt.setText(String.valueOf(num));
                 binding.totalTxt.setText("$" + num * object.getPrice());
             }
         });
@@ -51,7 +52,7 @@ public class DetailActivity extends BaseActivity {
             public void onClick(View v) {
                 if (num > 1) {
                     num = num - 1;
-                    binding.numTxt.setText(num);
+                    binding.numTxt.setText(String.valueOf(num));
                     binding.totalTxt.setText("$" + num * object.getPrice());
                 }
             }

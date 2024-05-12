@@ -1,6 +1,7 @@
 package com.example.food_app.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.food_app.R;
+import com.example.food_app.activity.ListFoodActivity;
 import com.example.food_app.domain.Category;
 
 import java.util.ArrayList;
@@ -36,10 +38,18 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewHo
     public void onBindViewHolder(@NonNull CategoryAdapter.viewHolder holder, int position) {
         holder.titleTxt.setText(items.get(position).getName());
         String path = items.get(position).getImagePath();
-        int drawableResourceId = context.getResources().getIdentifier(path, "drawable", context.getPackageName());
         Glide.with(context)
                 .load(path)
                 .into(holder.imageView);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ListFoodActivity.class);
+                intent.putExtra("CategoryId", items.get(position).getId());
+                intent.putExtra("CategoryName", items.get(position).getName());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
