@@ -1,5 +1,6 @@
 package com.example.food_app.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -18,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import java.util.ArrayList;
 
@@ -32,7 +34,20 @@ public class MainActivity extends BaseActivity {
 
         initCategory();
         initBanners();
+        setVariable();
+    }
+
+    private void setVariable() {
         binding.bottomNavBar.setItemSelected(R.id.nav_home, true);
+        binding.bottomNavBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int i) {
+                if (i == R.id.nav_cart) {
+                    startActivity(new Intent(MainActivity.this, CartActivity.class));
+                }
+            }
+        });
+
     }
 
     private void initBanners() {
